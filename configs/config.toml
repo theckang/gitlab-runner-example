@@ -1,0 +1,10 @@
+[[runners]]
+  name = "gitlab-runner"
+  url = "REPLACEME"
+  executor = "kubernetes"
+  
+  [runners.kubernetes]
+    [runners.kubernetes.pod_security_context]
+      run_as_non_root = true
+      run_as_user = 1000
+      add = ["SETFCAP"]      

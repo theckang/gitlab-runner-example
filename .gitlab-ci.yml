@@ -1,0 +1,16 @@
+stages:
+  - build
+
+buildah-build:
+  stage: build
+  tags:
+    - openshift
+  image: quay.io/buildah/stable
+  variables:
+    STORAGE_DRIVER: vfs
+    QUAY_REGISTRY: "quay.io"
+  script:
+    - export HOME=/tmp
+    - echo "$QUAY_ROBOT_PASS" | buildah login -u "$QUAY_ROBOT_USER" --password-stdin $QUAY_REGISTRY
+    - buildah build -t $IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+    - buildah push $IMAGE_NAME:$CI_COMMIT_SHORT_SHA
