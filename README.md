@@ -84,10 +84,10 @@ oc create -f configs/runner.yaml -n gitlab-runner-test
 
 1. Navigate to GitLab
 
-1. In the project, navigate to Build -> Jobs
+2. In the project, navigate to Build -> Jobs
 
-1. You should see a build here that is complete. 
+3. You should see a build here that is complete. 
 
 > Note: To trigger a new build, hit the circle of two arrows to "Run again". Or, you can push a change to the Gitlab repository.
 
-1. Navigate to Quay and find the image that was created by the GitLab Runner Agent.
+4. Navigate to Quay and find the image that was created by the GitLab Runner Agent.
