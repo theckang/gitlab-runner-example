@@ -68,6 +68,8 @@ oc create -f configs/secret.yaml -n gitlab-runner-test
 
 6. Edit the `config.toml` file with your gitlab instance url. Create the configmap.
 
+> Note: `SETFCAP` linxux capability is used in this configuration for buildah
+
 ```bash
 oc create configmap my-runner-config --from-file=configs/config.toml
 ```
